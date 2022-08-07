@@ -52,5 +52,22 @@ $(document).ready(
             lSystem.walk(iterations);
         });
         $("#dragon-curve-iterations-input").trigger("change");
+
+        $("#sierpinski-triangle-iterations-input").change(() => {
+            const canvasPath = new CanvasPath("sierpinski-triangle-canvas", 400, 500);
+            canvasPath.clear();
+            const iterations = parseInt($("#sierpinski-triangle-iterations-input").val(), 10);
+
+            const angle = 120;
+            const length = 250 / (Math.pow(2, iterations));
+            const initiator = "FXF--FF--FF";
+            const rules = new Map();
+            rules.set("F", "FF");
+            rules.set("X", "--FXF++FXF++FXF--");
+
+            const lSystem = new LSystem(angle, length, initiator, rules, canvasPath);
+            lSystem.walk(iterations);
+        });
+        $("#sierpinski-triangle-iterations-input").trigger("change");
     }
 );
