@@ -88,5 +88,23 @@ $(document).ready(
             lSystem.walk(iterations);
         });
         $("#sierpinski-carpet-iterations-input").trigger("change");
+
+        $("#gilbert-curve-iterations-input").change(() => {
+            const iterations = parseInt($("#gilbert-curve-iterations-input").val(), 10);
+            const canvasPath = new CanvasPath("gilbert-curve-canvas", 400, 25);
+            canvasPath.clear();
+
+            const angle = 90;
+            const length = 500 / (Math.pow(2, iterations));
+            const initiator = "X";
+            const rules = new Map();
+
+            rules.set("X", "-YF+XFX+FY-");
+            rules.set("Y", "+XF-YFY-FX+");
+
+            const lSystem = new LSystem(angle, length, initiator, rules, canvasPath);
+            lSystem.walk(iterations);
+        });
+        $("#gilbert-curve-iterations-input").trigger("change");
     }
 );
