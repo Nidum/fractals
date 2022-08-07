@@ -36,6 +36,9 @@
             <button class="nav-link" id="h-fractal-tab" data-bs-toggle="pill" data-bs-target="#h-fractal"
                     type="button" role="tab" aria-selected="false">H-fractal
             </button>
+            <button class="nav-link" id="julia-set-tab" data-bs-toggle="pill" data-bs-target="#julia-set"
+                    type="button" role="tab" aria-selected="false">Julia set
+            </button>
         </div>
         <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade show active" id="koch-line" role="tabpanel" aria-labelledby="koch-line-tab">
@@ -126,6 +129,27 @@
                     <canvas id="h-fractal-canvas" height="540" width="1250"></canvas>
                 </div>
             </div>
+            <div class="tab-pane fade" id="julia-set" role="tabpanel" aria-labelledby="julia-set-tab">
+                <div class="card my-3 d-flex flex-column">
+                    <div class="d-flex flex-row">
+                        <div class="mb-3 my-3 mz-3 ms-3 me-3">
+                            <label for="julia-set-iterations-input" class="form-label">Iterations</label>
+                            <input type="number" class="form-control" id="julia-set-iterations-input" value="20">
+                        </div>
+                        <div class="mb-3 my-3 mz-3 ms-3 me-3">
+                            <label for="julia-set-real-input" class="form-label">Real part</label>
+                            <input type="number" class="form-control" id="julia-set-real-input" data-a-dec="." value="-0.2">
+                        </div>
+                        <div class="mb-3 my-3 mz-3 ms-3 me-3">
+                            <label for="julia-set-imaginary-input" class="form-label">Imaginary part</label>
+                            <input type="number" class="form-control" id="julia-set-imaginary-input" data-a-dec="." value="0.75">
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <canvas id="julia-set-canvas" height="540" width="540" style="padding-left: 355px; padding-right: 355px"></canvas>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -134,6 +158,8 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
             crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/mathjs/lib/browser/math.js"></script>
     <script src="js/entry-point.js" type="module"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/chroma-js/2.4.2/chroma.min.js" integrity="sha512-zInFF17qBFVvvvFpIfeBzo7Tj7+rQxLeTJDmbxjBz5/zIr89YVbTNelNhdTT+/DCrxoVzBeUPVFJsczKbB7sew==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     </body>
 </html>

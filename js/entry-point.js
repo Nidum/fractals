@@ -1,5 +1,6 @@
 import CanvasPath from "./util/canvas-path.js";
 import LSystem from "./fractal/l-system.js";
+import JuliaSet from "./fractal/julia-set.js";
 
 $(document).ready(
     () => {
@@ -130,7 +131,7 @@ $(document).ready(
             canvasPath.clear();
 
             const angle = 90;
-            const length = 250 / Math.pow(2,  iterations);
+            const length = 250 / Math.pow(2, iterations);
             const initiator = "X";
             const rules = new Map();
 
@@ -141,5 +142,35 @@ $(document).ready(
             lSystem.walk(iterations);
         });
         $("#h-fractal-iterations-input").trigger("change");
+
+        $("#julia-set-iterations-input").change(() => {
+            drawJuliaSet();
+        });
+        $("#julia-set-imaginary-input").change(() => {
+            drawJuliaSet();
+        });
+        $("#julia-set-real-input").change(() => {
+            drawJuliaSet();
+        });
+        $("#julia-set-iterations-input").trigger("change");
     }
 );
+
+function drawJuliaSet() {
+    const iterations = parseInt($("#julia-set-iterations-input").val(), 10);
+    const real = parseFloat($("#julia-set-real-input").val());
+    const imaginary = parseFloat($("#julia-set-imaginary-input").val());
+
+    const canvasCtx = $("#julia-set-canvas")[0].getContext("2d");
+    canvasCtx.clearRect(0, 0, 2000, 2000);
+
+    const set = new JuliaSet(540, iterations, canvasCtx, math.complex(real, imaginary), randomPalette());
+    set.draw();
+}
+
+function randomPalette() {
+    const pallets = Object.keys(chroma.brewer);
+    const length = pallets.length;
+    const paletteId = Math.floor(Math.random() * length);
+    return chroma.brewer[pallets[paletteId]];
+}
