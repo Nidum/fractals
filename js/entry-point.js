@@ -69,5 +69,24 @@ $(document).ready(
             lSystem.walk(iterations);
         });
         $("#sierpinski-triangle-iterations-input").trigger("change");
+
+        $("#sierpinski-carpet-iterations-input").change(() => {
+            const iterations = parseInt($("#sierpinski-carpet-iterations-input").val(), 10);
+            const canvasPath = new CanvasPath("sierpinski-carpet-canvas", 400, 500);
+            canvasPath.clear();
+
+            const angle = 90;
+            const length = 150 / (Math.pow(3, iterations));
+            const initiator = "+FRFRF-FYFRF-FYFRF-FYFRF-";
+            const rules = new Map();
+            rules.set("F", "FFF");
+            rules.set("S", "SSS");
+            rules.set("R", "-FRFRF-FYFRF-SYSRS-SYSRS");
+            rules.set("Y", "-FRFRF-SYSRS-SYSRS-SYSRS");
+
+            const lSystem = new LSystem(angle, length, initiator, rules, canvasPath);
+            lSystem.walk(iterations);
+        });
+        $("#sierpinski-carpet-iterations-input").trigger("change");
     }
 );
