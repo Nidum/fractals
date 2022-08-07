@@ -35,5 +35,22 @@ $(document).ready(
             lSystem.walk(iterations);
         });
         $("#koch-snowflake-iterations-input").trigger("change");
+
+        $("#dragon-curve-iterations-input").change(() => {
+            const canvasPath = new CanvasPath("dragon-curve-canvas", 550, 350);
+            canvasPath.clear();
+            const iterations = parseInt($("#dragon-curve-iterations-input").val(), 10);
+
+            const angle = 90;
+            const length = 200 / (iterations * 4);
+            const initiator = "FX";
+            const rules = new Map();
+            rules.set("FX", "FX+FY+");
+            rules.set("FY", "-FX-FY");
+
+            const lSystem = new LSystem(angle, length, initiator, rules, canvasPath);
+            lSystem.walk(iterations);
+        });
+        $("#dragon-curve-iterations-input").trigger("change");
     }
 );

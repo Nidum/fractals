@@ -18,6 +18,9 @@
             <button class="nav-link" id="koch-snowflake-tab" data-bs-toggle="pill" data-bs-target="#koch-snowflake"
                     type="button" role="tab" aria-selected="false">Koch snowflake
             </button>
+            <button class="nav-link" id="dragon-curve-tab" data-bs-toggle="pill" data-bs-target="#dragon-curve"
+                    type="button" role="tab" aria-selected="false">Dragon curve
+            </button>
         </div>
         <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade show active" id="koch-line" role="tabpanel" aria-labelledby="koch-line-tab">
@@ -40,6 +43,17 @@
                 </div>
                 <div class="card">
                     <canvas id="koch-snowflake-canvas" height="540" width="1250"></canvas>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="dragon-curve" role="tabpanel" aria-labelledby="koch-snowflake-tab">
+                <div class="card my-3 d-flex flex-column">
+                    <div class="mb-3 my-3 mz-3 ms-3 me-3">
+                        <label for="dragon-curve-iterations-input" class="form-label">Iterations</label>
+                        <input type="number" class="form-control" id="dragon-curve-iterations-input" value="2">
+                    </div>
+                </div>
+                <div class="card">
+                    <canvas id="dragon-curve-canvas" height="540" width="1250"></canvas>
                 </div>
             </div>
         </div>
