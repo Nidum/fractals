@@ -123,5 +123,23 @@ $(document).ready(
             lSystem.walk(iterations);
         });
         $("#fractal-canopy-iterations-input").trigger("change");
+
+        $("#h-fractal-iterations-input").change(() => {
+            const iterations = parseInt($("#h-fractal-iterations-input").val(), 10);
+            const canvasPath = new CanvasPath("h-fractal-canvas", 650, 270);
+            canvasPath.clear();
+
+            const angle = 90;
+            const length = 250 / Math.pow(2,  iterations);
+            const initiator = "X";
+            const rules = new Map();
+
+            rules.set("F", "FF");
+            rules.set("X", "[F[+F-X][-F-X]]--[F[+F-X][-F-X]]");
+
+            const lSystem = new LSystem(angle, length, initiator, rules, canvasPath);
+            lSystem.walk(iterations);
+        });
+        $("#h-fractal-iterations-input").trigger("change");
     }
 );

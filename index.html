@@ -33,6 +33,9 @@
             <button class="nav-link" id="fractal-canopy-tab" data-bs-toggle="pill" data-bs-target="#fractal-canopy"
                     type="button" role="tab" aria-selected="false">Fractal canopy
             </button>
+            <button class="nav-link" id="h-fractal-tab" data-bs-toggle="pill" data-bs-target="#h-fractal"
+                    type="button" role="tab" aria-selected="false">H-fractal
+            </button>
         </div>
         <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade show active" id="koch-line" role="tabpanel" aria-labelledby="koch-line-tab">
@@ -110,6 +113,17 @@
                 </div>
                 <div class="card">
                     <canvas id="fractal-canopy-canvas" height="540" width="1250"></canvas>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="h-fractal" role="tabpanel" aria-labelledby="h-fractal-tab">
+                <div class="card my-3 d-flex flex-column">
+                    <div class="mb-3 my-3 mz-3 ms-3 me-3">
+                        <label for="h-fractal-iterations-input" class="form-label">Iterations</label>
+                        <input type="number" class="form-control" id="h-fractal-iterations-input" value="2">
+                    </div>
+                </div>
+                <div class="card">
+                    <canvas id="h-fractal-canvas" height="540" width="1250"></canvas>
                 </div>
             </div>
         </div>
