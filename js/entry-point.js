@@ -106,5 +106,22 @@ $(document).ready(
             lSystem.walk(iterations);
         });
         $("#gilbert-curve-iterations-input").trigger("change");
+
+        $("#fractal-canopy-iterations-input").change(() => {
+            const iterations = parseInt($("#fractal-canopy-iterations-input").val(), 10);
+            const canvasPath = new CanvasPath("fractal-canopy-canvas", 650, 300 + 950 / (4 * iterations));
+            canvasPath.clear();
+
+            const angle = 22.5;
+            const length = 950 / (4 * iterations);
+            const initiator = "++++F";
+            const rules = new Map();
+
+            rules.set("F", "F[+F][-F]");
+
+            const lSystem = new LSystem(angle, length, initiator, rules, canvasPath);
+            lSystem.walk(iterations);
+        });
+        $("#fractal-canopy-iterations-input").trigger("change");
     }
 );

@@ -30,6 +30,9 @@
             <button class="nav-link" id="gilbert-curve-tab" data-bs-toggle="pill" data-bs-target="#gilbert-curve"
                     type="button" role="tab" aria-selected="false">Gilbert curve
             </button>
+            <button class="nav-link" id="fractal-canopy-tab" data-bs-toggle="pill" data-bs-target="#fractal-canopy"
+                    type="button" role="tab" aria-selected="false">Fractal canopy
+            </button>
         </div>
         <div class="tab-content" id="v-pills-tabContent">
             <div class="tab-pane fade show active" id="koch-line" role="tabpanel" aria-labelledby="koch-line-tab">
@@ -96,6 +99,17 @@
                 </div>
                 <div class="card">
                     <canvas id="gilbert-curve-canvas" height="540" width="1250"></canvas>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="fractal-canopy" role="tabpanel" aria-labelledby="fractal-canopy-tab">
+                <div class="card my-3 d-flex flex-column">
+                    <div class="mb-3 my-3 mz-3 ms-3 me-3">
+                        <label for="fractal-canopy-iterations-input" class="form-label">Iterations</label>
+                        <input type="number" class="form-control" id="fractal-canopy-iterations-input" value="2">
+                    </div>
+                </div>
+                <div class="card">
+                    <canvas id="fractal-canopy-canvas" height="540" width="1250"></canvas>
                 </div>
             </div>
         </div>

@@ -39,4 +39,13 @@ export default class CanvasPath {
     clear() {
         this.context.clearRect(0, 0, 2000, 2000);
     }
+
+    currentState() {
+        return {x: this.x, y: this.y, angle: this.angle};
+    }
+
+    restoreState(state) {
+        this.moveTo(state.x, state.y);
+        this.angle = state.angle;
+    }
 }

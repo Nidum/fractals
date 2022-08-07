@@ -5,6 +5,7 @@ export default class LSystem {
         this.initiator = initiator;
         this.rules = rules;
         this.canvasPath = canvasPath;
+        this.stack = [];
     }
 
     walk(iterations){
@@ -15,6 +16,8 @@ export default class LSystem {
                 case "+": this.canvasPath.rotateLeft(this.angle); break;
                 case "-": this.canvasPath.rotateRight(this.angle); break;
                 case "S": this.canvasPath.jump(this.length); break;
+                case "[": this.putCoordinatesToStack(); break;
+                case "]": this.popCoordinatesFromStack(); break;
             }
         }
         this.canvasPath.draw();
@@ -29,5 +32,14 @@ export default class LSystem {
             result = result.toUpperCase();
         }
         return result;
+    }
+
+    putCoordinatesToStack() {
+        this.stack.push(this.canvasPath.currentState());
+    }
+
+    popCoordinatesFromStack() {
+        const state = this.stack.pop();
+        this.canvasPath.restoreState(state);
     }
 }
