@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Fractals</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+              crossorigin="anonymous"/>
+        <link href="./style/style.css" rel="stylesheet"/>
+    </head>
+    <body>
+    <div class="d-flex align-items-start">
+        <div class="nav flex-column nav-pills me-3 ms-3 my-3" id="v-pills-tab" role="tablist"
+             aria-orientation="vertical">
+            <button class="nav-link active" id="koch-line-tab" data-bs-toggle="pill" data-bs-target="#koch-line"
+                    type="button" role="tab" aria-selected="true">Koch line
+            </button>
+            <button class="nav-link" id="koch-snowflake-tab" data-bs-toggle="pill" data-bs-target="#koch-snowflake"
+                    type="button" role="tab" aria-selected="false">Koch snowflake
+            </button>
+        </div>
+        <div class="tab-content" id="v-pills-tabContent">
+            <div class="tab-pane fade show active" id="koch-line" role="tabpanel" aria-labelledby="koch-line-tab">
+                <div class="card my-3 d-flex flex-column">
+                    <div class="mb-3 my-3 mz-3 ms-3 me-3">
+                        <label for="koch-line-iterations-input" class="form-label">Iterations</label>
+                        <input type="number" class="form-control" id="koch-line-iterations-input" value="2">
+                    </div>
+                </div>
+                <div class="card">
+                    <canvas id="koch-line-canvas" height="540" width="1250"></canvas>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="koch-snowflake" role="tabpanel" aria-labelledby="koch-snowflake-tab">
+                <div class="card my-3 d-flex flex-column">
+                    <div class="mb-3 my-3 mz-3 ms-3 me-3">
+                        <label for="koch-snowflake-iterations-input" class="form-label">Iterations</label>
+                        <input type="number" class="form-control" id="koch-snowflake-iterations-input" value="2">
+                    </div>
+                </div>
+                <div class="card">
+                    <canvas id="koch-snowflake-canvas" height="540" width="1250"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <script src="js/entry-point.js" type="module"></script>
+    </body>
+</html>
